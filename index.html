@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gino Castelli - Diseñador Instruccional Senior y Gestor de Proyectos E-learning</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #8A2387, #E94057, #F27121);
+            animation: animated-gradient 15s ease infinite;
+            background-size: 200% 200%;
+        }
+        @keyframes animated-gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        #typing-subtitle::after {
+            content: '|';
+            font-weight: 200;
+            animation: blink 0.7s step-end infinite;
+            color: #fccde2;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        .card-hover-effect {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gray-800 tracking-tight">Gino Castelli</a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#profile" class="text-gray-600 hover:text-pink-600 transition duration-300">Perfil</a>
+                <a href="#experience" class="text-gray-600 hover:text-pink-600 transition duration-300">Experiencia</a>
+                <a href="#collaborations" class="text-gray-600 hover:text-pink-600 transition duration-300">Colaboraciones</a>
+                <a href="#portfolio" class="text-gray-600 hover:text-pink-600 transition duration-300">Portafolio</a>
+                <a href="#contact" class="bg-purple-600 text-white px-5 py-2 rounded-md hover:bg-purple-700 transition duration-300 shadow-sm">Contacto</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <a href="#profile" class="block py-3 px-6 text-sm text-gray-600 hover:bg-gray-100">Perfil</a>
+            <a href="#experience" class="block py-3 px-6 text-sm text-gray-600 hover:bg-gray-100">Experiencia</a>
+            <a href="#collaborations" class="block py-3 px-6 text-sm text-gray-600 hover:bg-gray-100">Colaboraciones</a>
+            <a href="#portfolio" class="block py-3 px-6 text-sm text-gray-600 hover:bg-gray-100">Portafolio</a>
+            <a href="#contact" class="block py-3 px-6 text-sm text-gray-600 hover:bg-gray-100">Contacto</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-gradient text-white py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <img src="https://i.ibb.co/yYvK0gW/1720657565353.jpg" alt="Foto de Gino Castelli" class="w-36 h-36 rounded-full mx-auto mb-6 border-4 border-white shadow-lg object-cover">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-2">Gino Castelli Aillal</h1>
+                <h2 id="typing-subtitle" class="text-xl md:text-2xl font-light text-pink-200 tracking-wide h-7"></h2>
+            </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profile" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Perfil Profesional</h2>
+                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 items-center animate-on-scroll">
+                    <div class="md:col-span-1">
+                        <img src="https://i.ibb.co/yYvK0gW/1720657565353.jpg" alt="[Fotografía de Gino Castelli en un entorno profesional]" class="rounded-lg shadow-xl mx-auto w-full max-w-xs md:max-w-full object-cover">
+                    </div>
+                    <div class="md:col-span-2">
+                        <p class="text-lg text-gray-700 leading-relaxed text-center md:text-left">
+                           Mi enfoque como Diseñador Instruccional se centra en transformar desafíos de capacitación en experiencias de aprendizaje efectivas y medibles. Con más de ocho años de experiencia, mi proceso abarca desde el análisis de necesidades hasta la evaluación del impacto, utilizando metodologías activas y tecnologías de vanguardia para garantizar que cada solución e-learning cumpla con los objetivos estratégicos de la organización.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Metrics Section -->
+        <section id="metrics" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Impacto en Cifras</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="animate-on-scroll">
+                        <h3 class="text-5xl font-extrabold text-purple-600 counter" data-target="200" data-plus="true">0</h3>
+                        <p class="text-lg font-medium text-gray-600 mt-2">Cursos Desarrollados</p>
+                    </div>
+                    <div class="animate-on-scroll" style="transition-delay: 150ms;">
+                        <h3 class="text-5xl font-extrabold text-pink-600 counter" data-target="6" data-plus="true">0</h3>
+                        <p class="text-lg font-medium text-gray-600 mt-2">Instituciones Apoyadas</p>
+                    </div>
+                    <div class="animate-on-scroll" style="transition-delay: 300ms;">
+                        <h3 class="text-5xl font-extrabold text-orange-500 counter" data-target="789">0</h3>
+                        <p class="text-lg font-medium text-gray-600 mt-2">Recursos Mediatizados</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Experience Section -->
+        <section id="experience" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Experiencia Profesional</h2>
+                <div class="max-w-3xl mx-auto relative border-l-2 border-gray-200">
+                    <!-- Timeline Items -->
+                    <div class="space-y-12">
+                        <!-- Item 1 -->
+                        <div class="relative flex items-start space-x-6 animate-on-scroll">
+                            <div class="relative z-10 flex-shrink-0">
+                                <div class="flex items-center justify-center w-12 h-12 bg-purple-200 rounded-full ring-4 ring-white">
+                                    <i class="fas fa-crown text-purple-600 text-xl"></i>
+                                </div>
+                            </div>
+                            <div class="bg-white p-6 rounded-lg shadow-md flex-1 hover:shadow-xl transition-shadow duration-300">
+                                <h3 class="text-lg font-semibold text-gray-900">Coordinador General de Diseño Instruccional</h3>
+                                <time class="block mb-2 text-sm font-normal leading-none text-gray-500">Marzo 2024 – Presente</time>
+                                <p class="text-base font-normal text-gray-600">Gestión y supervisión de equipos multidisciplinarios. Dirección del diseño instruccional completo, desde el análisis hasta la evaluación, vinculando el proceso de guionización con los proveedores multimedia.</p>
+                            </div>
+                        </div>
+                        <!-- Item 2 -->
+                        <div class="relative flex items-start space-x-6 animate-on-scroll">
+                            <div class="relative z-10 flex-shrink-0">
+                                <div class="flex items-center justify-center w-12 h-12 bg-pink-200 rounded-full ring-4 ring-white">
+                                    <i class="fas fa-users-cog text-pink-600 text-xl"></i>
+                                </div>
+                            </div>
+                            <div class="bg-white p-6 rounded-lg shadow-md flex-1 hover:shadow-xl transition-shadow duration-300">
+                                <h3 class="text-lg font-semibold text-gray-900">Coordinador de Diseño Instruccional</h3>
+                                <time class="block mb-2 text-sm font-normal leading-none text-gray-500">Febrero 2019 – Diciembre 2023</time>
+                                <p class="text-base font-normal text-gray-600">Supervisión de procesos de diseño y calidad para proyectos con organizaciones como Universidad San Sebastián, Universidad Gabriela Mistral y proyectos internos de Nativa Multimedia.</p>
+                            </div>
+                        </div>
+                         <!-- Item 3 -->
+                        <div class="relative flex items-start space-x-6 animate-on-scroll">
+                            <div class="relative z-10 flex-shrink-0">
+                                <div class="flex items-center justify-center w-12 h-12 bg-orange-200 rounded-full ring-4 ring-white">
+                                    <i class="fas fa-pencil-ruler text-orange-600 text-xl"></i>
+                                </div>
+                            </div>
+                            <div class="bg-white p-6 rounded-lg shadow-md flex-1 hover:shadow-xl transition-shadow duration-300">
+                                <h3 class="text-lg font-semibold text-gray-900">Diseñador Instruccional</h3>
+                                <time class="block mb-2 text-sm font-normal leading-none text-gray-500">Febrero 2018 – Febrero 2019</time>
+                                <p class="text-base font-normal text-gray-600">Diseño de experiencias de aprendizaje, creación de secuencias didácticas y guiones. Implementación de control de calidad para optimizar tiempos de producción.</p>
+                            </div>
+                        </div>
+                         <!-- Item 4 -->
+                        <div class="relative flex items-start space-x-6 animate-on-scroll">
+                            <div class="relative z-10 flex-shrink-0">
+                                <div class="flex items-center justify-center w-12 h-12 bg-indigo-200 rounded-full ring-4 ring-white">
+                                    <i class="fas fa-check-double text-indigo-600 text-xl"></i>
+                                </div>
+                            </div>
+                            <div class="bg-white p-6 rounded-lg shadow-md flex-1 hover:shadow-xl transition-shadow duration-300">
+                                <h3 class="text-lg font-semibold text-gray-900">Revisor de Contenidos</h3>
+                                <time class="block mb-2 text-sm font-normal leading-none text-gray-500">Enero 2016 – Febrero 2018</time>
+                                <p class="text-base font-normal text-gray-600">Aseguramiento de la calidad y coherencia de contenidos mediatizados, tanto en corrección de estilo como QA general.</p>
+                            </div>
+                        </div>
+                        <!-- Item 5 -->
+                        <div class="relative flex items-start space-x-6 animate-on-scroll">
+                            <div class="relative z-10 flex-shrink-0">
+                                <div class="flex items-center justify-center w-12 h-12 bg-teal-200 rounded-full ring-4 ring-white">
+                                    <i class="fas fa-chalkboard-teacher text-teal-600 text-xl"></i>
+                                </div>
+                            </div>
+                            <div class="bg-white p-6 rounded-lg shadow-md flex-1 hover:shadow-xl transition-shadow duration-300">
+                                <h3 class="text-lg font-semibold text-gray-900">Profesor de Aula de Lenguaje y Comunicación</h3>
+                                <time class="block mb-2 text-sm font-normal leading-none text-gray-500">Agosto 2013 – Febrero 2016</time>
+                                <p class="text-base font-normal text-gray-600">Planificación y ejecución de clases, desarrollo de material pedagógico y evaluación de aprendizajes para estudiantes de enseñanza media.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Collaborations Section -->
+        <section id="collaborations" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Colaboración y participación de proyectos</h2>
+                <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="flex flex-col text-center p-6 bg-white rounded-lg shadow-md animate-on-scroll card-hover-effect border-2 border-transparent hover:border-purple-300 hover:bg-purple-50 transition-colors duration-300">
+                        <h3 class="text-lg font-semibold text-gray-900">Universidad San Sebastián</h3>
+                        <p class="text-sm text-gray-600 mt-2">Liderazgo en diseño instruccional para cursos de pregrado (proyecto 20%), postgrado, Data Science y diplomados.</p>
+                    </div>
+                    <div class="flex flex-col text-center p-6 bg-white rounded-lg shadow-md animate-on-scroll card-hover-effect border-2 border-transparent hover:border-pink-300 hover:bg-pink-50 transition-colors duration-300" style="transition-delay: 100ms;">
+                        <h3 class="text-lg font-semibold text-gray-900">Universidad Santo Tomás</h3>
+                        <p class="text-sm text-gray-600 mt-2">Desarrollo instruccional de programas académicos en áreas clave como contabilidad y administración.</p>
+                    </div>
+                    <div class="flex flex-col text-center p-6 bg-white rounded-lg shadow-md animate-on-scroll card-hover-effect border-2 border-transparent hover:border-orange-300 hover:bg-orange-50 transition-colors duration-300" style="transition-delay: 200ms;">
+                        <h3 class="text-lg font-semibold text-gray-900">Chileproveedores</h3>
+                         <p class="text-sm text-gray-600 mt-2">Creación de tutoriales y recursos de capacitación para la plataforma de Mercado Público.</p>
+                    </div>
+                    <div class="flex flex-col text-center p-6 bg-white rounded-lg shadow-md animate-on-scroll card-hover-effect border-2 border-transparent hover:border-purple-300 hover:bg-purple-50 transition-colors duration-300" style="transition-delay: 300ms;">
+                        <h3 class="text-lg font-semibold text-gray-900">Universidad Finis Terrae</h3>
+                        <p class="text-sm text-gray-600 mt-2">Colaboración estratégica en el proyecto Industria 4.0 y en el diplomado de Convivencia Escolar.</p>
+                    </div>
+                    <div class="flex flex-col text-center p-6 bg-white rounded-lg shadow-md animate-on-scroll card-hover-effect border-2 border-transparent hover:border-pink-300 hover:bg-pink-50 transition-colors duration-300" style="transition-delay: 400ms;">
+                        <h3 class="text-lg font-semibold text-gray-900">Universidad Gabriela Mistral</h3>
+                        <p class="text-sm text-gray-600 mt-2">Desarrollo instruccional para un portafolio diverso de asignaturas de pregrado.</p>
+                    </div>
+                    <div class="flex flex-col text-center p-6 bg-white rounded-lg shadow-md animate-on-scroll card-hover-effect border-2 border-transparent hover:border-orange-300 hover:bg-orange-50 transition-colors duration-300" style="transition-delay: 500ms;">
+                        <h3 class="text-lg font-semibold text-gray-900">Transbank</h3>
+                        <p class="text-sm text-gray-600 mt-2">Diseño de cursos formativos en Alfabetización de Datos, en colaboración con la consultora Abisko.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Development Section -->
+        <section id="education" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Formación y Desarrollo</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="animate-on-scroll">
+                        <h3 class="text-xl font-semibold mb-4">Formación Académica</h3>
+                        <ul class="space-y-4">
+                            <li>
+                                <p class="font-bold">Estudiante de Ingeniería Informática</p>
+                                <p class="text-gray-600">Instituto Superior de Artes y Ciencias de la Comunicación</p>
+                            </li>
+                            <li>
+                                <p class="font-bold">Magister en Educación, Mención Gestión Educacional</p>
+                                <p class="text-gray-600">Universidad Metropolitana de Ciencias de la Educación</p>
+                            </li>
+                            <li>
+                                <p class="font-bold leading-tight">Diplomado en Diseño Instruccional, con mención en Construcción y configuración de una plataforma LMS Moodle</p>
+                                <p class="text-gray-600">Universidad del Desarrollo</p>
+                            </li>
+                             <li>
+                                <p class="font-bold">Profesor de Lenguaje y Comunicación</p>
+                                <p class="text-gray-600">Universidad San Sebastián</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="animate-on-scroll" style="transition-delay: 150ms;">
+                        <h3 class="text-xl font-semibold mb-4">Desarrollo Profesional Reciente</h3>
+                        <ul class="space-y-3 list-disc list-inside text-gray-700">
+                            <li>Diseño instruccional para el aprendizaje activo, Tecnológico de Monterrey (2024)</li>
+                            <li>Formación docente para habilidades del siglo XXI, UC (2023)</li>
+                            <li>Diseño Educativo o Instruccional inclusivo, LinkedIn (2022)</li>
+                            <li>Diseño Educativo: Guiones Gráficos o Storyboarding, LinkedIn (2022)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Competencies Section -->
+        <section id="competencies" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Competencias y Tecnologías</h2>
+                <div class="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div class="flex flex-col items-center animate-on-scroll">
+                        <div class="bg-purple-600 text-white rounded-full w-20 h-20 flex items-center justify-center text-4xl mb-3 shadow-lg"><i class="fas fa-sitemap"></i></div>
+                        <h3 class="font-bold text-lg">Metodologías</h3>
+                        <p class="text-gray-600 text-sm">Diseño con ADDIE, SAM y Aprendizaje Activo.</p>
+                    </div>
+                    <div class="flex flex-col items-center animate-on-scroll" style="transition-delay: 150ms;">
+                        <div class="bg-orange-500 text-white rounded-full w-20 h-20 flex items-center justify-center text-4xl mb-3 shadow-lg"><i class="fas fa-tools"></i></div>
+                        <h3 class="font-bold text-lg">Herramientas de Autor - IA generativa</h3>
+                        <p class="text-gray-600 text-sm">Articulate 360, Genially, Chat GPT, etc.</p>
+                    </div>
+                    <div class="flex flex-col items-center animate-on-scroll" style="transition-delay: 300ms;">
+                        <div class="bg-pink-600 text-white rounded-full w-20 h-20 flex items-center justify-center text-4xl mb-3 shadow-lg"><i class="fas fa-graduation-cap"></i></div>
+                        <h3 class="font-bold text-lg">Plataformas LMS</h3>
+                        <p class="text-gray-600 text-sm">Moodle, Blackboard, Canvas.</p>
+                    </div>
+                    <div class="flex flex-col items-center animate-on-scroll" style="transition-delay: 450ms;">
+                        <div class="bg-indigo-500 text-white rounded-full w-20 h-20 flex items-center justify-center text-4xl mb-3 shadow-lg"><i class="fas fa-film"></i></div>
+                        <h3 class="font-bold text-lg">Mediatización</h3>
+                        <p class="text-gray-600 text-sm">Transformación de contenido a formatos digitales.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Portafolio de Recursos</h2>
+                <div class="max-w-4xl mx-auto text-center text-gray-600 mb-12">
+                    <p>Cada desafío de aprendizaje requiere una solución a medida. Un concepto puede cobrar vida a través de una infografía visual, mientras que una habilidad compleja puede necesitar un módulo interactivo o una ruta de aprendizaje estructurada. A continuación, presento una muestra de los diversos formatos que desarrollo para crear experiencias de aprendizaje efectivas y atractivas.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                    <!-- Resource Card 1 -->
+                    <div class="card-hover-effect bg-white rounded-lg shadow-md p-6 text-center animate-on-scroll">
+                        <div class="text-5xl text-purple-600 mb-4"><i class="fas fa-file-alt"></i></div>
+                        <h3 class="font-bold text-lg mb-3">Infografía (Simple)</h3>
+                        <a href="URL_DEL_ARCHIVO_AQUI" class="inline-block bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700 transition-colors text-sm">Descargar</a>
+                    </div>
+                    <!-- Resource Card 2 -->
+                    <div class="card-hover-effect bg-white rounded-lg shadow-md p-6 text-center animate-on-scroll" style="transition-delay: 100ms;">
+                        <div class="text-5xl text-pink-600 mb-4"><i class="fas fa-mouse-pointer"></i></div>
+                        <h3 class="font-bold text-lg mb-3">Interactivo</h3>
+                        <a href="URL_DEL_ARCHIVO_AQUI" class="inline-block bg-pink-600 text-white px-4 py-2 rounded-md hover:bg-pink-700 transition-colors text-sm">Descargar</a>
+                    </div>
+                    <!-- Resource Card 3 -->
+                    <div class="card-hover-effect bg-white rounded-lg shadow-md p-6 text-center animate-on-scroll" style="transition-delay: 200ms;">
+                        <div class="text-5xl text-orange-500 mb-4"><i class="fas fa-route"></i></div>
+                        <h3 class="font-bold text-lg mb-3">Rutas de aprendizaje</h3>
+                        <a href="URL_DEL_ARCHIVO_AQUI" class="inline-block bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 transition-colors text-sm">Descargar</a>
+                    </div>
+                    <!-- Resource Card 4 -->
+                    <div class="card-hover-effect bg-white rounded-lg shadow-md p-6 text-center animate-on-scroll" style="transition-delay: 300ms;">
+                        <div class="text-5xl text-indigo-500 mb-4"><i class="fas fa-robot"></i></div>
+                        <h3 class="font-bold text-lg mb-3">Video IA generativa</h3>
+                        <a href="URL_DEL_ARCHIVO_AQUI" class="inline-block bg-indigo-500 text-white px-4 py-2 rounded-md hover:bg-indigo-600 transition-colors text-sm">Descargar</a>
+                    </div>
+                    <!-- Resource Card 5 -->
+                    <div class="card-hover-effect bg-white rounded-lg shadow-md p-6 text-center animate-on-scroll" style="transition-delay: 400ms;">
+                        <div class="text-5xl text-purple-600 mb-4"><i class="fas fa-book-open"></i></div>
+                        <h3 class="font-bold text-lg mb-3">Casos de estudio</h3>
+                        <a href="URL_DEL_ARCHIVO_AQUI" class="inline-block bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700 transition-colors text-sm">Descargar</a>
+                    </div>
+                    <!-- Resource Card 6 -->
+                    <div class="card-hover-effect bg-white rounded-lg shadow-md p-6 text-center animate-on-scroll" style="transition-delay: 500ms;">
+                        <div class="text-5xl text-pink-600 mb-4"><i class="fas fa-sticky-note"></i></div>
+                        <h3 class="font-bold text-lg mb-3">Apuntes</h3>
+                        <a href="URL_DEL_ARCHIVO_AQUI" class="inline-block bg-pink-600 text-white px-4 py-2 rounded-md hover:bg-pink-700 transition-colors text-sm">Descargar</a>
+                    </div>
+                    <!-- Resource Card 7 -->
+                     <div class="card-hover-effect bg-white rounded-lg shadow-md p-6 text-center animate-on-scroll" style="transition-delay: 600ms;">
+                        <div class="text-5xl text-orange-500 mb-4"><i class="fas fa-project-diagram"></i></div>
+                        <h3 class="font-bold text-lg mb-3">Infografía Interactiva</h3>
+                        <a href="URL_DEL_ARCHIVO_AQUI" class="inline-block bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 transition-colors text-sm">Descargar</a>
+                    </div>
+                    <!-- Resource Card 8 -->
+                     <div class="card-hover-effect bg-white rounded-lg shadow-md p-6 text-center animate-on-scroll" style="transition-delay: 700ms;">
+                        <div class="text-5xl text-indigo-500 mb-4"><i class="fas fa-chalkboard-teacher"></i></div>
+                        <h3 class="font-bold text-lg mb-3">Video tutorial</h3>
+                        <a href="URL_DEL_ARCHIVO_AQUI" class="inline-block bg-indigo-500 text-white px-4 py-2 rounded-md hover:bg-indigo-600 transition-colors text-sm">Descargar</a>
+                    </div>
+                    <!-- Resource Card 9 -->
+                     <div class="card-hover-effect bg-white rounded-lg shadow-md p-6 text-center animate-on-scroll" style="transition-delay: 800ms;">
+                        <div class="text-5xl text-purple-600 mb-4"><i class="fas fa-table"></i></div>
+                        <h3 class="font-bold text-lg mb-3">Matriz de aprendizaje</h3>
+                        <a href="URL_DEL_ARCHIVO_AQUI" class="inline-block bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700 transition-colors text-sm">Descargar</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="hero-gradient py-20 text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold mb-4">¿Busca Talento para su Equipo?</h2>
+                <p class="max-w-2xl mx-auto mb-8 font-light">Estoy en búsqueda de nuevos desafíos y me encantaría aportar mi experiencia a una organización innovadora. Si mi perfil se alinea con sus necesidades, no dude en contactarme.</p>
+                <a href="mailto:ginoj.castelli@gmail.com" class="bg-white text-purple-600 font-bold px-8 py-3 rounded-md hover:bg-gray-100 transition duration-300 shadow-lg">Contactar</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="https://www.linkedin.com/in/ginocastelli/" target="_blank" class="text-gray-400 hover:text-white transition duration-300" aria-label="LinkedIn"><i class="fab fa-linkedin fa-2x"></i></a>
+            </div>
+            <p class="text-sm text-gray-400 mb-2">Página desarrollada por Gino Castelli</p>
+            <p class="text-xs text-gray-500">&copy; 2025 Gino Castelli Aillal. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Typing Effect ---
+            const typingEffect = () => {
+                const subtitleElement = document.getElementById('typing-subtitle');
+                if (!subtitleElement) return;
+                const text = "Diseñador Instruccional Senior | Gestor de Proyecto E-learning";
+                let i = 0;
+                subtitleElement.innerHTML = "";
+                function typeWriter() {
+                    if (i < text.length) {
+                        subtitleElement.innerHTML += text.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, 50);
+                    }
+                }
+                typeWriter();
+            };
+            typingEffect();
+
+            // --- Mobile Menu Toggle ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // --- Scroll Animations ---
+            const scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                scrollObserver.observe(el);
+            });
+
+            // --- Counter Animation ---
+            const counterObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counters = entry.target.querySelectorAll('.counter');
+                        counters.forEach(counter => {
+                            counter.innerText = '0';
+                            const target = +counter.getAttribute('data-target');
+                            const hasPlus = counter.getAttribute('data-plus') === 'true';
+                            const duration = 2000; // ms
+                            const stepTime = 16; // roughly 60fps
+                            const totalSteps = duration / stepTime;
+                            const increment = target / totalSteps;
+
+                            let currentCount = 0;
+                            const updateCount = () => {
+                                currentCount += increment;
+                                if (currentCount < target) {
+                                    counter.innerText = (hasPlus ? '+' : '') + Math.ceil(currentCount);
+                                    requestAnimationFrame(updateCount);
+                                } else {
+                                    counter.innerText = (hasPlus ? '+' : '') + target;
+                                }
+                            };
+                            requestAnimationFrame(updateCount);
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            const metricsSection = document.getElementById('metrics');
+            if (metricsSection) {
+                counterObserver.observe(metricsSection);
+            }
+        });
+    </script>
+
+</body>
+</html>
