@@ -1,316 +1,318 @@
-import React, { useState, useEffect } from 'react';
-import { Mail, Linkedin, BookOpen, User, Folder, Download, ExternalLink, Menu, X, ChevronRight } from 'lucide-react';
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gino Castelli | M.Ed. & Innovación Educativa</title>
+    <!-- Tailwind CSS (Estilos modernos) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Iconos (FontAwesome para reemplazar Lucide en HTML) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Configuraciones extra para simular los efectos de React */
+        .glass-nav {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans text-slate-800 antialiased">
 
-// --- CONFIGURACIÓN ---
-// 1. Ve a tu Google Drive, crea una carpeta y haz clic derecho > Compartir > Cualquier persona con el enlace.
-// 2. Copia el ID de la carpeta de la URL (la cadena de letras y números después de /folders/).
-// 3. Pega ese ID aquí abajo:
-const DRIVE_FOLDER_ID = "TU_ID_DE_CARPETA_AQUI";
+    <!-- --- CONFIGURACIÓN DRIVE --- -->
+    <!-- Para activar tu Drive real:
+         1. Busca abajo la línea que dice <iframe src="...">
+         2. Cambia el ID de la carpeta por el tuyo.
+    -->
 
-// 4. Cambia esto a 'false' cuando hayas puesto tu ID real para ver el Drive de verdad.
-const USE_DEMO_DATA = true;
+    <!-- NAVEGACIÓN -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-5 bg-transparent text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="#inicio" class="text-2xl font-extrabold tracking-tight transition-colors flex items-baseline group">
+                        <span id="nav-title-prefix" class="mr-2 text-sm font-medium text-blue-200/90 group-hover:text-blue-400 transition-colors">M.Ed.</span>
+                        <span id="nav-title-main" class="transition-colors">Gino<span class="text-blue-500">Castelli</span></span>
+                    </a>
+                </div>
 
-const App = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-10">
+                    <a href="#inicio" class="nav-link text-sm font-semibold text-white/90 hover:text-white transition-colors">Inicio</a>
+                    <a href="#sobre-mi" class="nav-link text-sm font-semibold text-white/90 hover:text-white transition-colors">Sobre Mí</a>
+                    <a href="#recursos" class="nav-link text-sm font-semibold text-white/90 hover:text-white transition-colors">Recursos Drive</a>
+                    <a href="#contacto" class="nav-link text-sm font-semibold text-white/90 hover:text-white transition-colors">Contacto</a>
+                </div>
 
-  // Efecto para la barra de navegación al hacer scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
-  const navLinks = [
-    { name: 'Inicio', href: '#inicio' },
-    { name: 'Sobre Mí', href: '#sobre-mi' },
-    { name: 'Recursos Drive', href: '#recursos' },
-    { name: 'Contacto', href: '#contacto' },
-  ];
-
-  return (
-    <div className="min-h-screen bg-slate-50 font-sans text-slate-800 antialiased">
-
-      {/* --- NAVEGACIÓN --- */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center">
-              <a href="#inicio" className={`text-2xl font-extrabold tracking-tight transition-colors flex items-baseline ${scrolled ? 'text-slate-900' : 'text-white'}`}>
-                <span className={`mr-2 text-sm font-medium ${scrolled ? 'text-slate-500' : 'text-blue-200/90'}`}>M.Ed.</span>
-                Gino<span className="text-blue-500">Castelli</span>
-              </a>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="p-2 rounded-md hover:bg-white/10 transition-colors">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
             </div>
-
-            {/* Desktop Menu */}
-            <div className="hidden md:flex space-x-10">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className={`text-sm font-semibold transition-colors ${scrolled ? 'text-slate-600 hover:text-blue-600' : 'text-white/80 hover:text-white'}`}
-                >
-                  {link.name}
-                </a>
-              ))}
-            </div>
-
-            {/* Mobile Menu Button */}
-            <div className="md:hidden">
-              <button onClick={toggleMenu} className={`p-2 rounded-md transition-colors ${scrolled ? 'text-slate-800 hover:bg-slate-100' : 'text-white hover:bg-white/10'}`}>
-                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
-            </div>
-          </div>
         </div>
 
-        {/* Mobile Menu Dropdown */}
-        {isMenuOpen && (
-          <div className="md:hidden bg-white shadow-xl absolute w-full left-0 top-full border-t border-slate-100">
-            <div className="px-4 pt-4 pb-6 space-y-3">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="block px-4 py-3 text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {link.name}
-                </a>
-              ))}
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-xl absolute w-full left-0 top-full border-t border-slate-100">
+            <div class="px-4 pt-4 pb-6 space-y-3">
+                <a href="#inicio" class="block px-4 py-3 text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg">Inicio</a>
+                <a href="#sobre-mi" class="block px-4 py-3 text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg">Sobre Mí</a>
+                <a href="#recursos" class="block px-4 py-3 text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg">Recursos Drive</a>
+                <a href="#contacto" class="block px-4 py-3 text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg">Contacto</a>
             </div>
-          </div>
-        )}
-      </nav>
-
-      {/* --- HERO SECTION --- */}
-      <section id="inicio" className="relative pt-36 pb-24 lg:pt-52 lg:pb-40 bg-slate-900 overflow-hidden">
-        {/* Abstract Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-950 via-slate-900 to-indigo-950 z-0"></div>
-        <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] z-0 mix-blend-overlay"></div>
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl z-0"></div>
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl z-0"></div>
-
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-          <p className="text-blue-400 font-bold tracking-widest uppercase mb-4 text-sm md:text-base">
-            M.Ed. Gino Castelli
-          </p>
-          <h1 className="text-5xl md:text-7xl font-extrabold mb-8 tracking-tight leading-tight">
-            <span className="block text-blue-400">Innovación Educativa</span>
-            <span className="block">y Gestión Estratégica</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto font-light mb-12 leading-relaxed">
-            Profesor de Lengua y Literatura | Gestor de Proyectos | Diseño Instruccional
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-5">
-            <a href="#contacto" className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full transition-all shadow-lg hover:shadow-blue-500/50 flex items-center justify-center gap-3 group">
-              <Mail size={20} className="group-hover:-translate-y-1 transition-transform" />
-              Contáctame
-            </a>
-            <a href="#recursos" className="px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/20 hover:bg-white/20 text-white font-bold rounded-full transition-all flex items-center justify-center gap-3 group">
-              <Folder size={20} className="group-hover:-translate-y-1 transition-transform" />
-              Ver Recursos
-            </a>
-          </div>
         </div>
-      </section>
+    </nav>
 
-      {/* --- MÓDULO DE PRESENTACIÓN --- */}
-      <section id="sobre-mi" className="py-24 bg-white relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-slate-50 to-transparent -z-10"></div>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row gap-16 items-center">
+    <!-- HERO SECTION -->
+    <section id="inicio" class="relative pt-36 pb-24 lg:pt-52 lg:pb-40 bg-slate-900 overflow-hidden">
+        <!-- Background Effects -->
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-950 via-slate-900 to-indigo-950 z-0"></div>
+        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] z-0 mix-blend-overlay"></div>
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl z-0"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl z-0"></div>
 
-            {/* Left: Image Placeholder */}
-            <div className="w-full lg:w-2/5 flex justify-center">
-              <div className="relative w-72 h-72 md:w-96 md:h-96 bg-gradient-to-tr from-blue-100 to-indigo-100 rounded-2xl rotate-3 flex items-center justify-center shadow-2xl shadow-blue-100/50 overflow-hidden border-8 border-white">
-                <div className="absolute inset-0 bg-slate-900/5 z-10"></div>
-                {/* IMAGEN DE EXPERTO EN PEDAGOGÍA */}
-                <img
-                  src="image_0.png"
-                  alt="Experto en pedagogía enseñando en un aula moderna"
-                  className="w-full h-full object-cover -rotate-3 scale-105 transition-transform hover:scale-110"
-                />
-              </div>
-            </div>
-
-            {/* Right: Content */}
-            <div className="w-full lg:w-3/5">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-blue-700 text-sm font-bold mb-6">
-                <User size={18} />
-                <span>QUIÉN SOY</span>
-              </div>
-              <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-8 leading-tight">
-                Conectando la <span className="text-blue-600">Pedagogía</span> con la Gestión Eficiente
-              </h2>
-              <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
-                <p>
-                  Soy un profesional apasionado por la educación y la gestión. Mi trayectoria combina la base pedagógica como <strong>Profesor de Lengua y Literatura</strong> con habilidades avanzadas en la gestión de proyectos educativos y diseño instruccional.
-                </p>
-                <p>
-                  Mi objetivo es crear puentes entre el contenido académico riguroso y las metodologías modernas, facilitando experiencias de aprendizaje significativas. Me especializo en optimizar procesos educativos y crear material didáctico que realmente impacte en el aula y entornos virtuales.
-                </p>
-              </div>
-
-              {/* Badges */}
-              <div className="mt-10 flex flex-wrap gap-3">
-                {['Gestión Educativa', 'Diseño Instruccional', 'Lenguaje', 'Liderazgo', 'Innovación'].map((tag) => (
-                  <span key={tag} className="px-5 py-2.5 bg-white text-slate-700 rounded-full text-sm font-semibold border border-slate-200 shadow-sm hover:border-blue-300 hover:text-blue-600 transition-colors">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* --- MÓDULO DE DRIVE (RECURSOS) --- */}
-      <section id="recursos" className="py-24 bg-slate-50 border-y border-slate-200 relative relative overflow-hidden">
-        <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl z-0"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 text-indigo-700 text-sm font-bold mb-6">
-              <Folder size={18} />
-              <span>MATERIAL DESCARGABLE</span>
-            </div>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6">Repositorio de Recursos</h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              Acceso directo a mi carpeta de Google Drive. Todo el material que subo aquí se actualiza automáticamente en esta sección.
+        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+            <p class="text-blue-400 font-bold tracking-widest uppercase mb-4 text-sm md:text-base animate-fade-in-up">
+                M.Ed. Gino Castelli
             </p>
-          </div>
-
-          {/* CONTENEDOR DRIVE */}
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200/60">
-            <div className="bg-slate-50/80 backdrop-blur-sm px-6 py-4 border-b border-slate-200/60 flex items-center justify-between">
-              <div className="flex items-center gap-3 text-slate-700 font-semibold">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Google_Drive_icon_%282020%29.svg" alt="Drive" className="w-7 h-7 drop-shadow-sm" />
-                <span>Carpeta Pública / Material Docente</span>
-              </div>
-              <a
-                href={USE_DEMO_DATA ? "#" : `https://drive.google.com/drive/folders/${DRIVE_FOLDER_ID}`}
-                target="_blank"
-                rel="noreferrer"
-                className="text-sm font-medium text-blue-600 hover:text-blue-800 flex items-center gap-1.5 px-3 py-1.5 rounded-md hover:bg-blue-50 transition-colors"
-              >
-                Abrir en Drive <ExternalLink size={16} />
-              </a>
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-8 tracking-tight leading-tight">
+                <span class="block text-blue-400">Innovación Educativa</span>
+                <span class="block">y Gestión Estratégica</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto font-light mb-12 leading-relaxed">
+                Profesor de Lengua y Literatura | Gestor de Proyectos | Diseño Instruccional
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-5">
+                <a href="#contacto" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full transition-all shadow-lg hover:shadow-blue-500/50 flex items-center justify-center gap-3 group">
+                    <i class="fas fa-envelope group-hover:-translate-y-1 transition-transform"></i>
+                    Contáctame
+                </a>
+                <a href="#recursos" class="px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/20 hover:bg-white/20 text-white font-bold rounded-full transition-all flex items-center justify-center gap-3 group">
+                    <i class="fas fa-folder group-hover:-translate-y-1 transition-transform"></i>
+                    Ver Recursos
+                </a>
             </div>
+        </div>
+    </section>
 
-            <div className="h-[650px] w-full bg-white relative">
-              {USE_DEMO_DATA ? (
-                // --- VISTA DEMO (Simulación Visual) ---
-                <div className="p-8 h-full overflow-y-auto bg-slate-50/50">
-                  <div className="bg-gradient-to-r from-yellow-50 to-amber-50 border-l-4 border-yellow-400 p-5 mb-8 rounded-r-lg shadow-sm">
-                    <div className="flex gap-3">
-                        <div className="text-yellow-500"><ExternalLink size={24}/></div>
-                        <div>
-                            <p className="font-bold text-yellow-800 text-lg">Modo Demo Activo</p>
-                            <p className="text-sm text-yellow-700 mt-1">
-                            Para ver tu carpeta real, edita el código: pon tu <code>DRIVE_FOLDER_ID</code> y cambia <code>USE_DEMO_DATA</code> a <code>false</code>.
-                            </p>
+    <!-- SOBRE MÍ -->
+    <section id="sobre-mi" class="py-24 bg-white relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-slate-50 to-transparent -z-10"></div>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                
+                <!-- Imagen -->
+                <div class="w-full lg:w-2/5 flex justify-center">
+                    <div class="relative w-72 h-72 md:w-96 md:h-96 bg-gradient-to-tr from-blue-100 to-indigo-100 rounded-2xl rotate-3 flex items-center justify-center shadow-2xl shadow-blue-100/50 overflow-hidden border-8 border-white group">
+                        <div class="absolute inset-0 bg-slate-900/5 z-10 transition-opacity group-hover:opacity-0"></div>
+                        <!-- Placeholder de imagen -->
+                        <div class="w-full h-full bg-slate-200 flex items-center justify-center text-slate-400 -rotate-3 scale-105">
+                           <i class="fas fa-user-tie text-9xl opacity-50"></i>
+                           <!-- Descomenta y pon tu URL de imagen aquí: -->
+                           <!-- <img src="TU_FOTO.jpg" alt="Gino Castelli" class="w-full h-full object-cover"> -->
                         </div>
                     </div>
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => {
-                        const isPdf = item % 2 === 0;
-                        const bgColor = isPdf ? 'bg-red-50' : 'bg-blue-50';
-                        const textColor = isPdf ? 'text-red-600' : 'text-blue-600';
-                        const borderColor = isPdf ? 'border-red-100 hover:border-red-300' : 'border-blue-100 hover:border-blue-300';
-                        const icon = isPdf ? 'PDF' : 'DOC';
-                        return (
-                      <div key={item} className={`bg-white border ${borderColor} rounded-xl p-5 hover:shadow-md transition-all cursor-pointer group flex flex-col justify-between h-48`}>
-                        <div>
-                            <div className="flex items-center gap-4 mb-4">
-                            <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${bgColor} ${textColor} shadow-sm`}>
-                                <span className="font-bold text-sm">{icon}</span>
-                            </div>
-                            <div className="overflow-hidden flex-1">
-                                <p className="font-semibold text-slate-800 truncate group-hover:text-blue-600 transition-colors">Material_Clase_{item}.{isPdf ? 'pdf' : 'docx'}</p>
-                                <p className="text-xs text-slate-400 mt-1">Modificado hace 2 días</p>
-                            </div>
-                            </div>
-                            <p className="text-sm text-slate-500 line-clamp-2">Descripción breve del documento y su contenido para la clase.</p>
-                        </div>
-                        <div className="flex justify-end pt-4">
-                          <button className="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-full transition-colors">
-                            <Download size={20} />
-                          </button>
-                        </div>
-                      </div>
-                    )})}
-                  </div>
                 </div>
-              ) : (
-                // --- VISTA REAL (Iframe Google Drive) ---
-                <iframe
-                  src={`https://drive.google.com/embeddedfolderview?id=${DRIVE_FOLDER_ID}#list`}
-                  className="w-full h-full border-0"
-                  title="Gino Castelli Drive Resources"
-                  allowFullScreen
-                ></iframe>
-              )}
+
+                <!-- Texto -->
+                <div class="w-full lg:w-3/5">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-blue-700 text-sm font-bold mb-6">
+                        <i class="fas fa-user"></i>
+                        <span>QUIÉN SOY</span>
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 mb-8 leading-tight">
+                        Conectando la <span class="text-blue-600">Pedagogía</span> con la Gestión Eficiente
+                    </h2>
+                    <div class="space-y-6 text-lg text-slate-600 leading-relaxed">
+                        <p>
+                            Soy un profesional apasionado por la educación y la gestión. Mi trayectoria combina la base pedagógica como <strong>Profesor de Lengua y Literatura</strong> con habilidades avanzadas en la gestión de proyectos educativos y diseño instruccional.
+                        </p>
+                        <p>
+                            Mi objetivo es crear puentes entre el contenido académico riguroso y las metodologías modernas, facilitando experiencias de aprendizaje significativas. Me especializo en optimizar procesos educativos y crear material didáctico que realmente impacte en el aula y entornos virtuales.
+                        </p>
+                    </div>
+
+                    <div class="mt-10 flex flex-wrap gap-3">
+                        <span class="px-5 py-2.5 bg-white text-slate-700 rounded-full text-sm font-semibold border border-slate-200 shadow-sm hover:border-blue-300 hover:text-blue-600 transition-colors">Gestión Educativa</span>
+                        <span class="px-5 py-2.5 bg-white text-slate-700 rounded-full text-sm font-semibold border border-slate-200 shadow-sm hover:border-blue-300 hover:text-blue-600 transition-colors">Diseño Instruccional</span>
+                        <span class="px-5 py-2.5 bg-white text-slate-700 rounded-full text-sm font-semibold border border-slate-200 shadow-sm hover:border-blue-300 hover:text-blue-600 transition-colors">Lenguaje</span>
+                        <span class="px-5 py-2.5 bg-white text-slate-700 rounded-full text-sm font-semibold border border-slate-200 shadow-sm hover:border-blue-300 hover:text-blue-600 transition-colors">Liderazgo</span>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </section>
+    </section>
 
-      {/* --- CONTACTO --- */}
-      <section id="contacto" className="py-24 bg-white relative overflow-hidden">
-        <div className="absolute bottom-0 right-0 w-full h-1/2 bg-gradient-to-t from-slate-50 to-transparent -z-10"></div>
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-8">Hablemos</h2>
-          <p className="text-xl text-slate-600 mb-16 max-w-2xl mx-auto">
-            Estoy disponible para nuevos proyectos educativos, asesorías y colaboraciones estratégicas.
-          </p>
+    <!-- RECURSOS DRIVE -->
+    <section id="recursos" class="py-24 bg-slate-50 border-y border-slate-200 relative overflow-hidden">
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl z-0"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 text-indigo-700 text-sm font-bold mb-6">
+                    <i class="fas fa-folder-open"></i>
+                    <span>MATERIAL DESCARGABLE</span>
+                </div>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6">Repositorio de Recursos</h2>
+                <p class="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+                    Acceso directo a mi carpeta de Google Drive. Todo el material que subo aquí se actualiza automáticamente.
+                </p>
+            </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Email Card */}
-            <a href="mailto:Ginoj.castelli@gmail.com" className="group p-10 rounded-2xl bg-white border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-blue-100/50 hover:border-blue-200 transition-all duration-300 flex flex-col items-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-0"></div>
-              <div className="w-20 h-20 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform z-10 shadow-sm">
-                <Mail size={36} />
-              </div>
-              <h3 className="text-2xl font-bold text-slate-800 mb-3 z-10">Correo Electrónico</h3>
-              <p className="text-lg text-slate-500 group-hover:text-blue-600 transition-colors z-10 font-medium">Ginoj.castelli@gmail.com</p>
+            <!-- DRIVER CONTAINER -->
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200/60">
+                <div class="bg-slate-50/80 backdrop-blur-sm px-6 py-4 border-b border-slate-200/60 flex items-center justify-between">
+                    <div class="flex items-center gap-3 text-slate-700 font-semibold">
+                        <i class="fab fa-google-drive text-2xl"></i>
+                        <span>Carpeta Pública / Material Docente</span>
+                    </div>
+                    <!-- Link externo de seguridad -->
+                    <a href="https://drive.google.com/" target="_blank" class="text-sm font-medium text-blue-600 hover:text-blue-800 flex items-center gap-1.5 px-3 py-1.5 rounded-md hover:bg-blue-50 transition-colors">
+                        Abrir en Drive <i class="fas fa-external-link-alt text-xs"></i>
+                    </a>
+                </div>
+
+                <div class="h-[650px] w-full bg-white relative">
+                    <!-- 
+                        IMPORTANTE: DRIVE EMBED
+                        Reemplaza "ID_DE_TU_CARPETA" con el ID real de tu carpeta pública.
+                        Si no lo cambias, Google mostrará un error 404.
+                    -->
+                    <iframe 
+                        src="https://drive.google.com/embeddedfolderview?id=ID_DE_TU_CARPETA#list" 
+                        class="w-full h-full border-0"
+                        title="Material Gino Castelli">
+                    </iframe>
+                    
+                    <!-- Mensaje de respaldo por si el ID está mal -->
+                    <div class="absolute -z-10 inset-0 flex flex-col items-center justify-center bg-gray-50 text-gray-400">
+                        <i class="fas fa-cloud-download-alt text-4xl mb-4"></i>
+                        <p>Cargando carpeta de recursos...</p>
+                        <p class="text-xs mt-2">(Si esto no carga, verifica el ID de la carpeta en el código HTML)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="py-24 bg-white relative overflow-hidden">
+        <div class="absolute bottom-0 right-0 w-full h-1/2 bg-gradient-to-t from-slate-50 to-transparent -z-10"></div>
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 mb-8">Hablemos</h2>
+            <p class="text-xl text-slate-600 mb-16 max-w-2xl mx-auto">
+                Estoy disponible para nuevos proyectos educativos, asesorías y colaboraciones estratégicas.
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Email -->
+                <a href="mailto:Ginoj.castelli@gmail.com" class="group p-10 rounded-2xl bg-white border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-blue-100/50 hover:border-blue-200 transition-all duration-300 flex flex-col items-center relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-0"></div>
+                    <div class="w-20 h-20 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform z-10 shadow-sm">
+                        <i class="fas fa-envelope text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-3 z-10">Correo Electrónico</h3>
+                    <p class="text-lg text-slate-500 group-hover:text-blue-600 transition-colors z-10 font-medium">Ginoj.castelli@gmail.com</p>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/ginocastelli" target="_blank" class="group p-10 rounded-2xl bg-white border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-blue-100/50 hover:border-blue-200 transition-all duration-300 flex flex-col items-center relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-0"></div>
+                    <div class="w-20 h-20 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:-rotate-3 transition-transform z-10 shadow-sm">
+                        <i class="fab fa-linkedin-in text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-3 z-10">LinkedIn</h3>
+                    <p class="text-lg text-slate-500 group-hover:text-blue-600 transition-colors z-10 font-medium">/in/ginocastelli</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 py-16 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <a href="#inicio" class="text-3xl font-extrabold text-white mb-8 inline-block">
+                <span class="text-xl mr-2 font-light text-slate-500">M.Ed.</span>
+                Gino<span class="text-blue-500">Castelli</span>
             </a>
-
-            {/* LinkedIn Card */}
-            <a href="https://www.linkedin.com/in/ginocastelli" target="_blank" rel="noreferrer" className="group p-10 rounded-2xl bg-white border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-blue-100/50 hover:border-blue-200 transition-all duration-300 flex flex-col items-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-0"></div>
-              <div className="w-20 h-20 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:-rotate-3 transition-transform z-10 shadow-sm">
-                <Linkedin size={36} />
-              </div>
-              <h3 className="text-2xl font-bold text-slate-800 mb-3 z-10">LinkedIn</h3>
-              <p className="text-lg text-slate-500 group-hover:text-blue-600 transition-colors z-10 font-medium">/in/ginocastelli</p>
-            </a>
-          </div>
+            <div class="flex justify-center gap-8 mb-10">
+                <a href="https://www.linkedin.com/in/ginocastelli" class="text-slate-400 hover:text-white hover:bg-white/10 p-3 rounded-full transition-all text-xl"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:Ginoj.castelli@gmail.com" class="text-slate-400 hover:text-white hover:bg-white/10 p-3 rounded-full transition-all text-xl"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="mb-4 text-slate-500">&copy; <script>document.write(new Date().getFullYear())</script> Gino Castelli. Todos los derechos reservados.</p>
         </div>
-      </section>
+    </footer>
 
-      {/* --- FOOTER --- */}
-      <footer className="bg-slate-900 text-slate-400 py-16">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <a href="#inicio" className="text-3xl font-extrabold text-white mb-8 inline-block">
-            <span className="text-xl mr-2 font-light text-slate-500">M.Ed.</span>
-            Gino<span className="text-blue-500">Castelli</span>
-          </a>
-          <div className="flex justify-center gap-8 mb-10">
-             <a href="https://www.linkedin.com/in/ginocastelli" className="text-slate-400 hover:text-white hover:bg-white/10 p-3 rounded-full transition-all"><Linkedin size={28} /></a>
-             <a href="mailto:Ginoj.castelli@gmail.com" className="text-slate-400 hover:text-white hover:bg-white/10 p-3 rounded-full transition-all"><Mail size={28} /></a>
-          </div>
-          <p className="mb-4 text-slate-500">&copy; {new Date().getFullYear()} Gino Castelli. Todos los derechos reservados.</p>
-          <p className="text-sm text-slate-600">Diseñado con pasión por la educación y la tecnología.</p>
-        </div>
-      </footer>
-    </div>
-  );
-};
+    <!-- SCRIPT DE FUNCIONALIDAD (JAVASCRIPT VANILLA) -->
+    <script>
+        // Lógica para el menú móvil y el scroll del navbar
+        const navbar = document.getElementById('navbar');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navTitleMain = document.getElementById('nav-title-main');
+        const navTitlePrefix = document.getElementById('nav-title-prefix');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const menuIcon = mobileMenuBtn.querySelector('i');
 
-export default App;
+        // Función Scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                // Estado Scrolled (Fondo blanco)
+                navbar.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-sm', 'py-3', 'text-slate-900');
+                navbar.classList.remove('bg-transparent', 'py-5', 'text-white');
+                
+                navTitleMain.classList.add('text-slate-900');
+                navTitlePrefix.classList.replace('text-blue-200/90', 'text-slate-500');
 
+                navLinks.forEach(link => {
+                    link.classList.replace('text-white/90', 'text-slate-600');
+                    link.classList.replace('hover:text-white', 'hover:text-blue-600');
+                });
+                
+                mobileMenuBtn.classList.add('text-slate-800');
+                
+            } else {
+                // Estado Top (Transparente)
+                navbar.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-sm', 'py-3', 'text-slate-900');
+                navbar.classList.add('bg-transparent', 'py-5', 'text-white');
+
+                navTitleMain.classList.remove('text-slate-900');
+                navTitlePrefix.classList.replace('text-slate-500', 'text-blue-200/90');
+
+                navLinks.forEach(link => {
+                    link.classList.replace('text-slate-600', 'text-white/90');
+                    link.classList.replace('hover:text-blue-600', 'hover:text-white');
+                });
+
+                mobileMenuBtn.classList.remove('text-slate-800');
+            }
+        });
+
+        // Toggle Menú Móvil
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            // Cambiar icono
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            } else {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+            }
+        });
+
+        // Cerrar menú móvil al hacer click en un enlace
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+    </script>
+</body>
+</html>
